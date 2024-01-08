@@ -1,1 +1,13 @@
-<p>exibe-deputados works!</p>
+<button (click)="toggleOptions()">
+  {{ nameOptionShow }}
+</button>
+
+<ng-container *ngIf="exibirTodos">
+  <div class="container" *ngFor="let dept of deputados">
+    <img src="{{ dept.urlFoto }}" />
+    <h3>{{ dept.nome }}</h3>
+    <p>{{ dept.siglaUf }}</p>
+    <p>{{ dept.siglaPartido }}</p>
+    <p>{{ dept.email }}</p>
+  </div>
+</ng-container>

@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EventEmitter, Injectable, Output } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Deputado } from '../model/deputado';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DeputadoService {
+  dept? = new Subject<any[]>();
+
   private URL = 'https://dadosabertos.camara.leg.br/api/v2';
 
   constructor(private http: HttpClient) {}
